@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AC06D484-155F-4C95-BA2C-9C97A0FB323B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Promaster.Primitives</RootNamespace>
+    <AssemblyName>Promaster.Primitives</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile24</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <Content Include="FloatingPoint\ReadMe.txt" />
+    <Content Include="Measure\Readme.txt" />
+    <Content Include="PropertyFiltering\Parsing\CocoR\Coco.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Collections\DictionaryExtensions.cs" />
+    <Compile Include="Collections\EnumerableExtensions.cs" />
+    <Compile Include="Collections\IReadOnlyDictionaryPortable.cs" />
+    <Compile Include="Collections\IReadOnlyKeyedCollection.cs" />
+    <Compile Include="Collections\IReadOnlyListPortable.cs" />
+    <Compile Include="Collections\LambdaComparer.cs" />
+    <Compile Include="Collections\LambdaEqualityComparer.cs" />
+    <Compile Include="Collections\PairList.cs" />
+    <Compile Include="Collections\SafeDictionary.cs" />
+    <Compile Include="Collections\SafeKeyedCollection.cs" />
+    <Compile Include="Collections\SafeList.cs" />
+    <Compile Include="FloatingPoint\Binary64.cs" />
+    <Compile Include="FloatingPoint\Binary64Exponent.cs" />
+    <Compile Include="FloatingPoint\Binary64InsignificantBits.cs" />
+    <Compile Include="FloatingPoint\Binary64Significand.cs" />
+    <Compile Include="FloatingPoint\Double42.cs" />
+    <Compile Include="FloatingPoint\DoubleExtensions.cs" />
+    <Compile Include="FloatingPoint\Sign.cs" />
+    <Compile Include="Measure\Amount.cs" />
+    <Compile Include="Measure\AmountCompareExtensions.cs" />
+    <Compile Include="Measure\AmountOperatorExtensions.cs" />
+    <Compile Include="Measure\AmountStorageUnit.cs" />
+    <Compile Include="Measure\ConvertibleQuantity\IConvertibleQuantity.cs" />
+    <Compile Include="Measure\ConvertibleQuantity\IFlow.cs" />
+    <Compile Include="Measure\ConvertibleQuantity\IHumidity.cs" />
+    <Compile Include="Measure\FloatingCompareExtension.cs" />
+    <Compile Include="Measure\Quantity\IAcceleration.cs" />
+    <Compile Include="Measure\Quantity\IAlkalinity.cs" />
+    <Compile Include="Measure\Quantity\IAmountOfSubstance.cs" />
+    <Compile Include="Measure\Quantity\IAngle.cs" />
+    <Compile Include="Measure\Quantity\IArea.cs" />
+    <Compile Include="Measure\Quantity\ICatalyticActivity.cs" />
+    <Compile Include="Measure\Quantity\IDataAmount.cs" />
+    <Compile Include="Measure\Quantity\IDeltaTemperature.cs" />
+    <Compile Include="Measure\Quantity\IDensity.cs" />
+    <Compile Include="Measure\Quantity\IDewPointTemperature.cs" />
+    <Compile Include="Measure\Quantity\IDimensionless.cs" />
+    <Compile Include="Measure\Quantity\IDimensionlessPerEnergy.cs" />
+    <Compile Include="Measure\Quantity\IDimensionlessPerMass.cs" />
+    <Compile Include="Measure\Quantity\IDimensionlessPerVolume.cs" />
+    <Compile Include="Measure\Quantity\IDiscrete.cs" />
+    <Compile Include="Measure\Quantity\IDuration.cs" />
+    <Compile Include="Measure\Quantity\IElectricCapacitance.cs" />
+    <Compile Include="Measure\Quantity\IElectricCharge.cs" />
+    <Compile Include="Measure\Quantity\IElectricConductance.cs" />
+    <Compile Include="Measure\Quantity\IElectricCurrent.cs" />
+    <Compile Include="Measure\Quantity\IElectricInductance.cs" />
+    <Compile Include="Measure\Quantity\IElectricPotential.cs" />
+    <Compile Include="Measure\Quantity\IElectricResistance.cs" />
+    <Compile Include="Measure\Quantity\IEmission.cs" />
+    <Compile Include="Measure\Quantity\IEnergy.cs" />
+    <Compile Include="Measure\Quantity\IForce.cs" />
+    <Compile Include="Measure\Quantity\IFrequency.cs" />
+    <Compile Include="Measure\Quantity\IHeatCapacityRate.cs" />
+    <Compile Include="Measure\Quantity\IHeatingValue.cs" />
+    <Compile Include="Measure\Quantity\IHumidityRatio.cs" />
+    <Compile Include="Measure\Quantity\IIlluminance.cs" />
+    <Compile Include="Measure\Quantity\IIntensity.cs" />
+    <Compile Include="Measure\Quantity\ILength.cs" />
+    <Compile Include="Measure\Quantity\ILuminousFlux.cs" />
+    <Compile Include="Measure\Quantity\ILuminousIntensity.cs" />
+    <Compile Include="Measure\Quantity\IMagneticFlux.cs" />
+    <Compile Include="Measure\Quantity\IMagneticFluxDensity.cs" />
+    <Compile Include="Measure\Quantity\IMass.cs" />
+    <Compile Include="Measure\Quantity\IMassFlow.cs" />
+    <Compile Include="Measure\Quantity\IMassFlowPerArea.cs" />
+    <Compile Include="Measure\Quantity\IMomentOfInertia.cs" />
+    <Compile Include="Measure\Quantity\IPower.cs" />
+    <Compile Include="Measure\Quantity\IPressure.cs" />
+    <Compile Include="Measure\Quantity\IQuantity.cs" />
+    <Compile Include="Measure\Quantity\IRadiationDoseAbsorbed.cs" />
+    <Compile Include="Measure\Quantity\IRadiationDoseEffective.cs" />
+    <Compile Include="Measure\Quantity\IRadioactiveActivity.cs" />
+    <Compile Include="Measure\Quantity\IRelativeHumidity.cs" />
+    <Compile Include="Measure\Quantity\ISolidAngle.cs" />
+    <Compile Include="Measure\Quantity\ISoundPowerLevel.cs" />
+    <Compile Include="Measure\Quantity\ISoundPressureLevel.cs" />
+    <Compile Include="Measure\Quantity\ISpecificEnthalpy.cs" />
+    <Compile Include="Measure\Quantity\ISpecificFanPower.cs" />
+    <Compile Include="Measure\Quantity\ISpecificHeatCapacity.cs" />
+    <Compile Include="Measure\Quantity\IStandardVolumeFlow.cs" />
+    <Compile Include="Measure\Quantity\ITemperature.cs" />
+    <Compile Include="Measure\Quantity\IText.cs" />
+    <Compile Include="Measure\Quantity\IVelocity.cs" />
+    <Compile Include="Measure\Quantity\IViscosity.cs" />
+    <Compile Include="Measure\Quantity\IVolume.cs" />
+    <Compile Include="Measure\Quantity\IVolumeFlow.cs" />
+    <Compile Include="Measure\Quantity\IVolumeFlowPerPower.cs" />
+    <Compile Include="Measure\Quantity\IWaterHardness.cs" />
+    <Compile Include="Measure\Quantity\IWaterUseEfficiency.cs" />
+    <Compile Include="Measure\Quantity\IWetTemperature.cs" />
+    <Compile Include="Measure\Unit\AlternateUnit.cs" />
+    <Compile Include="Measure\Unit\BaseUnit.cs" />
+    <Compile Include="Measure\Unit\Converters\Compound.cs" />
+    <Compile Include="Measure\Unit\Converters\FactorConverter.cs" />
+    <Compile Include="Measure\Unit\Converters\IdentityConverter.cs" />
+    <Compile Include="Measure\Unit\Converters\OffsetConverter.cs" />
+    <Compile Include="Measure\Unit\Converters\UnitConverter.cs" />
+    <Compile Include="Measure\Unit\MeasureSystem.cs" />
+    <Compile Include="Measure\Unit\ProductUnit.cs" />
+    <Compile Include="Measure\Unit\TransformedUnit.cs" />
+    <Compile Include="Measure\Unit\Unit.cs" />
+    <Compile Include="Measure\Unit\UnitExtensions.cs" />
+    <Compile Include="Measure\Unit\Units.cs" />
+    <Compile Include="ProductProperties\ProductVariant.cs" />
+    <Compile Include="ProductProperties\PropertyType.cs" />
+    <Compile Include="ProductProperties\PropertyValue.cs" />
+    <Compile Include="ProductProperties\PropertyValueSet.cs" />
+    <Compile Include="ProductProperties\PropertyValueSetBuilder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyFiltering\Ast\AddExpr.cs" />
+    <Compile Include="PropertyFiltering\Ast\AddOperator.cs" />
+    <Compile Include="PropertyFiltering\Ast\AndExpr.cs" />
+    <Compile Include="PropertyFiltering\Ast\ComparisonExpr.cs" />
+    <Compile Include="PropertyFiltering\Ast\ComparisonOperationType.cs" />
+    <Compile Include="PropertyFiltering\Ast\EmptyExpr.cs" />
+    <Compile Include="PropertyFiltering\Ast\EqualsExpr.cs" />
+    <Compile Include="PropertyFiltering\Ast\EqualsOperationType.cs" />
+    <Compile Include="PropertyFiltering\Ast\Expr.cs" />
+    <Compile Include="PropertyFiltering\Ast\IdentifierAsExpr.cs" />
+    <Compile Include="PropertyFiltering\Ast\IdentifierExpr.cs" />
+    <Compile Include="PropertyFiltering\Ast\IFilterVisitor.cs" />
+    <Compile Include="PropertyFiltering\Ast\MultiplyExpr.cs" />
+    <Compile Include="PropertyFiltering\Ast\MultiplyOperator.cs" />
+    <Compile Include="PropertyFiltering\Ast\NullExpr.cs" />
+    <Compile Include="PropertyFiltering\Ast\OrExpr.cs" />
+    <Compile Include="PropertyFiltering\Ast\UnaryExpr.cs" />
+    <Compile Include="PropertyFiltering\Ast\UnaryOperator.cs" />
+    <Compile Include="PropertyFiltering\Ast\ValueExpr.cs" />
+    <Compile Include="PropertyFiltering\Ast\ValueRangeExpr.cs" />
+    <Compile Include="PropertyFiltering\Compilation\FilterToLambaCompiler.cs" />
+    <Compile Include="PropertyFiltering\Evaluation\FilterEvaluator.cs" />
+    <Compile Include="PropertyFiltering\Parsing\Parser.cs" />
+    <Compile Include="PropertyFiltering\Parsing\Scanner.cs" />
+    <Compile Include="PropertyFiltering\Printing\FilterPrinter.cs" />
+    <Compile Include="PropertyFiltering\PropertyFilter.cs" />
+    <Compile Include="PropertyFiltering\PropertyReferences\PropertyReferencesFinder.cs" />
+    <Compile Include="PropertyFiltering\TypeInference\ExprType.cs" />
+    <Compile Include="PropertyFiltering\TypeInference\FilterTypeInferrer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PropertyFiltering\Parsing\CocoR\Generate.bat" />
+    <None Include="PropertyFiltering\Parsing\CocoR\Parser.frame" />
+    <None Include="PropertyFiltering\Parsing\CocoR\PropertyFilter.ATG" />
+    <None Include="PropertyFiltering\Parsing\CocoR\Scanner.frame" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

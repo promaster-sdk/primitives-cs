@@ -1,0 +1,136 @@
+using System.Collections.Generic;
+using Promaster.Primitives.PropertyFiltering.Ast;
+
+COMPILER PropertyFilter
+
+private Expr _root;
+
+public Expr GetRoot() { return _root; }
+
+private ComparisonOperationType StringToComparisonOperationType(string str)
+{
+  if (str == ">") return ComparisonOperationType.Greater;
+  if (str == "<") return ComparisonOperationType.Less;
+  if (str == ">=") return ComparisonOperationType.GreaterOrEqual;
+  return ComparisonOperationType.LessOrEqual;
+}
+
+private EqualsOperationType StringToEqualsOperationType(string str)
+{
+  if (str == "=") return EqualsOperationType.Equals;
+  return EqualsOperationType.NotEquals;
+}
+
+IGNORECASE
+
+CHARACTERS
+  letter = "abcdefghijklmnopqrstuvwxyz._" .
+  digit = "0123456789" .
+	any = ANY - '"' .
+
+TOKENS
+  ident  = letter {letter | digit} .
+	propval = '"' {any} '"' | ["-"] digit {digit} [ "." digit {digit} ] [ ":" letter {letter} ] .
+
+PRODUCTIONS
+
+/*------------------------------------------------------------------------*/
+PropertyFilter
+= OrExpr<out _root> .
+
+/*------------------------------------------------------------------------*/
+OrExpr<out Expr expr>            (. var children = new List<Expr>(); Expr e; .) 
+= AndExpr<out e>                 (. children.Add(e); .)
+  { "|" AndExpr<out e>           (. children.Add(e); .)
+	}                              (. expr = children.Count == 1 ? children[0] : new OrExpr(children); .)
+  .                                
+
+/*------------------------------------------------------------------------*/
+AndExpr<out Expr expr>           (. var children = new List<Expr>(); Expr e; .) 
+= Expr<out e>                    (. children.Add(e); .)
+  { "&" Expr<out e>              (. children.Add(e); .)
+	}                              (. expr = children.Count == 1 ? children[0] : new AndExpr(children); .)
+  .
+
+/*------------------------------------------------------------------------*/
+Expr<out Expr expr>              (. expr = null; .)
+= ("(" OrExpr<out expr> ")") 
+  |
+	ComparisonExpr<out expr>
+	.
+
+/*------------------------------------------------------------------------*/
+ComparisonExpr<out Expr expr>            (. expr = null; Expr lh; .)
+= AddExpr<out lh>
+  (
+  (                                      (. Expr rh; .)
+  (">" | "<" | ">=" | "<=")              (. var opType = StringToComparisonOperationType(t.val); .)
+	AddExpr<out rh>                      (. expr = new ComparisonExpr(lh, opType, rh); .)
+	)
+	|
+	(                                      (. Expr r; var list = new List<Expr>(); .)
+	("=" | "!=")                           (. var opType = StringToEqualsOperationType(t.val); .)
+	ValueRangeExpr<out r>                  (. list.Add(r); .)
+	{ "," ValueRangeExpr<out r>            (. list.Add(r); .)
+	}                                      (. expr = new EqualsExpr(lh, opType, list); .)
+	)
+	)
+	.                                              
+
+/*------------------------------------------------------------------------*/
+ValueRangeExpr<out Expr val>             (. val = null; Expr v1; Expr v2; .)
+= AddExpr<out v1>
+  ["~" AddExpr<out v2>                   (. val = new ValueRangeExpr(v1, v2); .)
+	]
+	                                       (. if (val == null) val = new ValueRangeExpr(v1, v1); .)
+	.
+
+//-------------------------------------------------------------
+AddExpr<out Expr e>											(. AddOperator op; Expr e2; .)
+=	MultiplyExpr<out e>
+	{
+		(
+		"+"                                 (. op = AddOperator.Plus; .)
+		| "-"                               (. op = AddOperator.Minus; .)
+		)
+		MultiplyExpr<out e2>                (. e = new AddExpr(e, op, e2); .)
+	}
+.
+
+//-------------------------------------------------------------
+MultiplyExpr<out Expr e>	            	(. MultiplyOperator op; Expr e2; .)
+=	UnaryExpr<out e>
+	{
+		(
+	  "*"                                 (. op = MultiplyOperator.Times; .)
+	  | "/"                               (. op = MultiplyOperator.Divide; .)
+		| "%"																(. op = MultiplyOperator.Modulo; .)
+	  )
+		UnaryExpr<out e2>					          (. e = new MultiplyExpr(e, op, e2); .)
+	}
+.
+
+//-------------------------------------------------------------
+UnaryExpr<out Expr e>                    (. e = null; .)
+= (                                      (. UnaryOperator op; .)
+  (
+  "-"                                    (. op = UnaryOperator.Minus; .)
+	)
+	 ValueExpr<out e>                      (. e = new UnaryExpr(op, e); .)
+	)
+	| ValueExpr<out e>
+	.
+
+/*------------------------------------------------------------------------*/
+ValueExpr<out Expr val>                  (. val = null; string s = null; .)
+= "null"                                 (. val = new NullExpr(); .)
+  |
+	ident																	 (. val = new IdentifierExpr(t.val); s = t.val; .)
+	[":" ident														 (. val = new IdentifierAsExpr(s, t.val); .)
+	
+	]
+  |
+	propval																 (. val = new ValueExpr(t.val); .)
+	.
+
+END PropertyFilter.

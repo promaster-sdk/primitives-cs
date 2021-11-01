@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Promaster.Primitives", "Promaster.Primitives\Promaster.Primitives.csproj", "{AC06D484-155F-4C95-BA2C-9C97A0FB323B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Promaster.Primitives.Tests", "Promaster.Primitives.Tests\Promaster.Primitives.Tests.csproj", "{763A5B76-67DE-4C89-A2BB-71694B128600}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC06D484-155F-4C95-BA2C-9C97A0FB323B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC06D484-155F-4C95-BA2C-9C97A0FB323B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC06D484-155F-4C95-BA2C-9C97A0FB323B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC06D484-155F-4C95-BA2C-9C97A0FB323B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{763A5B76-67DE-4C89-A2BB-71694B128600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{763A5B76-67DE-4C89-A2BB-71694B128600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{763A5B76-67DE-4C89-A2BB-71694B128600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{763A5B76-67DE-4C89-A2BB-71694B128600}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

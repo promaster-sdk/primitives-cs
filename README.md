@@ -2,7 +2,7 @@
 
 C# property values, filtering, unit of measure (uom)
 
-The the code is provided as-is without support. It is possible to get support by separate agreement with (Divid Promaster AB)[https://promaster.se].
+The the code is provided as-is without support. It is possible to get support by separate agreement with Divid Promaster AB https://promaster.se.
 
 ## Property values and filtering
 

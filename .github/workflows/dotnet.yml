@@ -12,8 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-dotnet@v1
-      - uses: microsoft/setup-msbuild@v1
         with:
           dotnet-version: '2.1.302'
+      - uses: microsoft/setup-msbuild@v1
       - run: dotnet build -p:OutDir="$(pwd)/build_output"
       

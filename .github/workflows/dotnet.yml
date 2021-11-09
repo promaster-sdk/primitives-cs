@@ -3,29 +3,16 @@ name: .NET
 on:
   push:
     branches: master
-  pull_request:
-    branches: master
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
-    
-    - name: Setup .NET Core SDK - latest
-      uses: actions/setup-dotnet@v1.7.2
-      with:
-        dotnet-version: '5.0.*'
-
-    - name: Setup .NET Core SDK - 2.1
-      uses: actions/setup-dotnet@v1.7.2
-      with:
-        dotnet-version: '2.1.x'
-        
-    - name: set shell script permissions
-      run: chmod +x ./build.sh
-
-    - name: build and test
-      run: ./build.sh test
+      - uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.x'
+      - run: dotnet build -p:OutDir="$(pwd)/build_output"
+      

@@ -17,5 +17,6 @@ jobs:
       - name: Build
         run: |
           dotnet build Promaster.Primitives/Promaster.Primitives.csproj
+          dotnet build Promaster.Primitives.Test/Promaster.Primitives.Test.csproj
           
 

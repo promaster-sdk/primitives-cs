@@ -16,12 +16,11 @@ jobs:
           dotnet-version: '2.1.302'
       - name: Install dependencies
         run: | 
-          dotnet restore Promaster.Primitives.Test/Promaster.Primitives.Test.csproj
+          dotnet restore Promaster.Primitives/Promaster.Primitives.csproj
       - name: Build
         run: | 
           dotnet build Promaster.Primitives/Promaster.Primitives.csproj
-          dotnet build Promaster.Primitives.Test/Promaster.Primitives.Test.csproj
       - name: Test
         run: | 
-          dotnet test Promaster.Primitives.Test/Promaster.Primitives.Test.csproj
+          dotnet test dotnet build Promaster.Primitives/Promaster.Primitives.csproj
 

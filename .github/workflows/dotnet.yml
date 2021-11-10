@@ -14,8 +14,10 @@ jobs:
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '2.1.302'
-      - name: Install dependencies
-        run: dotnet restore Promaster.Primitives.sln
+      - name: Setup Nuget
+        uses: Nuget/setup-nuget@v1.0.5
+      - name: Restore nuget packages
+        run: nuget restore Promaster.Primitives.sln
       - name: Build
         run: |
           dotnet build Promaster.Primitives/Promaster.Primitives.csproj

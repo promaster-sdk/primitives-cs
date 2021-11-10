@@ -15,4 +15,4 @@ jobs:
         with:
           dotnet-version: '2.1.302'  
       - run: | 
-          dotnet build --project Promaster.Primitives/Promaster.Primitives.csproj
+          dotnet run --project Promaster.Primitives/Promaster.Primitives.csproj

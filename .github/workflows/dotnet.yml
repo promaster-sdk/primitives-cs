@@ -17,7 +17,7 @@ jobs:
       - name: Setup Nuget
         uses: Nuget/setup-nuget@v1.0.5
       - name: Restore nuget packages
-        run: nuget restore Promaster.Primitives.Test/Promaster.Primitives.Test.csproj
+        run: nuget restore Promaster.Primitives.sln
       - name: Build
         run: |
           dotnet build Promaster.Primitives/Promaster.Primitives.csproj

@@ -1,5 +1,7 @@
 # primitives-cs
 
+> NOTE: The code is provided as-is without support. Support is available by separate agreement with Divid Promaster.
+
 C# property values, filtering, unit of measure (uom)
 
 The the code is provided as-is without support. It is possible to get support by separate agreement with [Divid Promaster AB](https://promaster.se).
